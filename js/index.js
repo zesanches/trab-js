@@ -113,8 +113,10 @@ function deleteEmployee() {
     method: "POST",
     body: JSON.stringify({ id: employee.id }),
   });
+
+  window.location.reload();
 }
 
 const confirmDeleteEmployee = document.getElementById("confirm-delete");
 
-confirmDeleteEmployee.onclick = deleteEmployee;
+confirmDeleteEmployee.onclick = () => deleteEmployee();
