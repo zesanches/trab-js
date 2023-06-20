@@ -29,27 +29,56 @@
             id="listEmployees"
             href="#"
             class="list-group-item list-group-item-action"
+            onclick="listManagers()"
+            >Listar Managers</a
+          >
+          <a
+            id="listEmployees"
+            href="#"
+            class="list-group-item list-group-item-action"
             onclick="listEmployees()"
             >Listar Empregados</a
           >
-          <a href="#" class="list-group-item list-group-item-action"
+          <a href="./manager.html" class="list-group-item list-group-item-action mt-3"
+            >Registrar Manager</a
+          >
+          <a href="./employee.html" class="list-group-item list-group-item-action"
             >Registrar Empregado</a
           >
         </div>
       </div>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar Empregado</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Deletar Empregado
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
-            <div class="modal-body">
-             Deseja deletar este Empregado?
-            </div>
+            <div class="modal-body">Deseja deletar este Empregado?</div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" id="confirm-delete">Confirmar</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button type="button" class="btn btn-primary" id="confirm-delete">
+                Confirmar
+              </button>
             </div>
           </div>
         </div>

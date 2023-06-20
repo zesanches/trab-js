@@ -1,29 +1,19 @@
-function getEmployee() {
-  return JSON.parse(localStorage.getItem("employee"));
+async function handleEditEmployee(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("inputNome").value;
+  const employer_id = document.getElementById("employer_id").value;
+  const is_pj = document.getElementById("is_pj").checked;
+
+  try {
+    fetch("http://localhost:3000/employee/create", {
+      method: "POST",
+      body: JSON.stringify({ name, employer_id, is_pj }),
+    });
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-function initialize() {
-  const employee = getEmployee();
-  const nameInput = document.getElementById("inputNome");
-  const idInput = document.getElementById("inputId");
-
-  console.log(employee);
-
-  nameInput.value = employee.name;
-  idInput.value = employee.id;
-}
-
-window.onload = () => initialize();
-
-function handleEditEmployee() {
-  const id = document.getElementById("inputId");
-  const name = document.getElementById("inputNome");
-
-  fetch("http://localhost:3000/employee/update", {
-    method: "POST",
-    body: JSON.stringify({ name: name, id: id, email: email, phone: phone }),
-  });
-}
-
-const send = document.getElementById("send");
-send.onclick = handleEditEmployee;
+const buttonSend = document.getElementById("send");
+buttonSend.onclick = (e) => handleEditEmployee(e);
