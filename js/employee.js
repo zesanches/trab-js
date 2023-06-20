@@ -6,9 +6,17 @@ async function handleEditEmployee(e) {
   const is_pj = document.getElementById("is_pj").checked;
 
   try {
-    fetch("http://localhost:3000/employee/create", {
+    await fetch("http://localhost:3000/employee/create", {
       method: "POST",
-      body: JSON.stringify({ name, employer_id, is_pj }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      body: JSON.stringify({
+        name: name,
+        is_pj: is_pj,
+        employer_id: employer_id,
+      }),
     });
   } catch (e) {
     console.error(e);

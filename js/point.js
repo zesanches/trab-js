@@ -15,6 +15,10 @@ async function listPoints() {
       `http://localhost:3000/ponto/employee/${employee.id}`,
       {
         method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=UTF-8",
+        },
       }
     );
 
@@ -96,3 +100,27 @@ const confirmDeleteEmployee = document.getElementById("confirm-delete");
 confirmDeleteEmployee.onclick = deletePoint;
 
 window.onload = initialize();
+
+async function handleRegisterPoint(e) {
+  e.preventDefault();
+
+  const inputLocalizacao = document.getElementById("inputLocalizacao");
+  const employee = getEmployee();
+
+  try {
+    await fetch(`http://localhost:3000/ponto/create`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      body: JSON.stringify({
+        employee_id: employee.id,
+        location: inputLocalizacao.value,
+      }),
+    });
+  } catch (e) {}
+}
+
+const registerPointButton = document.getElementById("register-point");
+registerPointButton.onclick = (e) => handleRegisterPoint(e);
